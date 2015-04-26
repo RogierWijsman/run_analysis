@@ -1,4 +1,3 @@
-
 ## Load data
   x_test  <- read.table("UCI HAR Dataset/test/X_test.txt")
   y_test  <- read.table("UCI HAR Dataset/test/y_test.txt")
@@ -36,9 +35,13 @@
   merged_xys_activ <- merge(merged_xys, activity_labels,  by = "activity_id")
 
 
-##create File
+##Summarize - library("plyr", lib.loc="~/R/win-library/3.1")
 
-  write.table(merged_xys_activ, file = "MyData.txt",row.names=FALSE ,col.names=FALSE, sep=",")
+  summarized_data <- ddply(merged_xys_activ, .(activity_name,activity_id,subject_id), colwise(mean))
+  
+##create File
+  
+  write.table(summarized_data , file = "MyData.txt" ,col.names=TRUE, sep=",")
   
 ##Be Happy:)
   
