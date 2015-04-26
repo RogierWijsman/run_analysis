@@ -1,3 +1,7 @@
+Click raw to see it nicely formatted!!!
+
+
+
 activity_id	identifier of the activity(name is in the last column)
 subject_id	identifier of the person
 tBodyAcc-mean()-X	measure
